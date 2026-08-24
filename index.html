@@ -106,23 +106,6 @@
             font-size: 15px;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            margin-top: 17px;
-            padding: 7px 14px;
-
-            border-radius: 999px;
-
-            background: rgba(0, 198, 255, 0.07);
-            border: 1px solid rgba(0, 198, 255, 0.16);
-
-            color: #9edfff;
-            font-size: 12px;
-        }
-
         /* =========================
            CARDS
         ========================== */
@@ -177,19 +160,6 @@
             color: #ffffff;
         }
 
-        .intro-highlight {
-            margin-top: 18px;
-            padding: 15px 17px;
-
-            border-radius: 15px;
-
-            background: rgba(0, 198, 255, 0.06);
-            border: 1px solid rgba(0, 198, 255, 0.15);
-
-            color: #cbefff;
-            font-size: 13px;
-        }
-
         /* =========================
            OS BUTTONS
         ========================== */
@@ -222,7 +192,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
 
             font-family: inherit;
             font-size: 15px;
@@ -250,13 +219,11 @@
             box-shadow: 0 12px 30px rgba(0,114,255,0.12);
         }
 
-        .os-icon {
-            font-size: 24px;
-        }
-
-        .back-button {
+        /* Linux وسط صفحه */
+        .linux-button {
             grid-column: 1 / -1;
-            background: rgba(255,255,255,0.04);
+            width: 50%;
+            justify-self: center;
         }
 
         /* =========================
@@ -396,6 +363,7 @@
         .download-button:hover {
             transform: translateY(-2px);
             border-color: rgba(0,198,255,0.35);
+
             background:
                 linear-gradient(
                     135deg,
@@ -538,6 +506,7 @@
 
         .telegram-button:hover {
             transform: translateY(-2px);
+
             box-shadow:
                 0 16px 35px rgba(34,158,217,0.24);
         }
@@ -649,8 +618,8 @@
                 font-size: 13px;
             }
 
-            .os-icon {
-                font-size: 21px;
+            .linux-button {
+                width: 50%;
             }
 
             .guide-header {
@@ -674,11 +643,11 @@
         @media (max-width: 370px) {
 
             .os-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
-            .back-button {
-                grid-column: auto;
+            .linux-button {
+                width: 100%;
             }
         }
     </style>
@@ -688,9 +657,7 @@
 
 <div class="container">
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- HEADER -->
 
     <header class="hero">
 
@@ -706,16 +673,10 @@
             راهنمای اتصال و دریافت برنامه
         </p>
 
-        <div class="hero-badge">
-            ⚡ سریع • پایدار • امن
-        </div>
-
     </header>
 
 
-    <!-- =========================
-         MAIN INTRO
-    ========================== -->
+    <!-- MAIN INTRO -->
 
     <section class="card" id="mainPage">
 
@@ -749,33 +710,23 @@
         <div class="os-grid">
 
             <button class="os-button" onclick="showGuide('windows')">
-                <span class="os-icon">🪟</span>
                 <span>Windows</span>
             </button>
 
             <button class="os-button" onclick="showGuide('android')">
-                <span class="os-icon">🤖</span>
                 <span>Android</span>
             </button>
 
             <button class="os-button" onclick="showGuide('ios')">
-                <span class="os-icon">🍎</span>
                 <span>iOS</span>
             </button>
 
             <button class="os-button" onclick="showGuide('mac')">
-                <span class="os-icon">💻</span>
                 <span>Mac</span>
             </button>
 
-            <button class="os-button" onclick="showGuide('linux')">
-                <span class="os-icon">🐧</span>
+            <button class="os-button linux-button" onclick="showGuide('linux')">
                 <span>Linux</span>
-            </button>
-
-            <button class="os-button back-button" onclick="scrollToTop()">
-                <span>↩️</span>
-                <span>بازگشت</span>
             </button>
 
         </div>
@@ -783,9 +734,7 @@
     </section>
 
 
-    <!-- =========================
-         WINDOWS
-    ========================== -->
+    <!-- WINDOWS -->
 
     <section class="card guide-page" id="windows">
 
@@ -838,9 +787,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🚀</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                v2rayN — Download
+                                v2rayN
                             </div>
                         </div>
 
@@ -855,9 +804,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🔐</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Hiddify — Download
+                                Hiddify
                             </div>
                         </div>
 
@@ -874,7 +823,7 @@
                         <div class="download-left">
                             <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Netch — Download
+                                Netch
                             </div>
                         </div>
 
@@ -960,9 +909,7 @@
     </section>
 
 
-    <!-- =========================
-         ANDROID
-    ========================== -->
+    <!-- ANDROID -->
 
     <section class="card guide-page" id="android">
 
@@ -1012,9 +959,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">⚡</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Happ — Google Play
+                                Happ
                             </div>
                         </div>
 
@@ -1029,26 +976,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🔵</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                v2rayNG — Google Play
-                            </div>
-                        </div>
-
-                        <div class="download-arrow">←</div>
-                    </a>
-
-
-                    <a
-                        class="download-button"
-                        href="https://github.com/2dust/v2rayNG/releases"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div class="download-left">
-                            <div class="download-icon">📦</div>
-                            <div class="download-name">
-                                v2rayNG — GitHub
+                                v2rayNG
                             </div>
                         </div>
 
@@ -1063,26 +993,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🔐</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Hiddify — سایت رسمی
-                            </div>
-                        </div>
-
-                        <div class="download-arrow">←</div>
-                    </a>
-
-
-                    <a
-                        class="download-button"
-                        href="https://github.com/hiddify/hiddify-app/releases"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div class="download-left">
-                            <div class="download-icon">💻</div>
-                            <div class="download-name">
-                                Hiddify — GitHub
+                                Hiddify
                             </div>
                         </div>
 
@@ -1170,9 +1083,7 @@
     </section>
 
 
-    <!-- =========================
-         IOS
-    ========================== -->
+    <!-- IOS -->
 
     <section class="card guide-page" id="ios">
 
@@ -1224,9 +1135,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">⚡</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Happ — App Store
+                                Happ
                             </div>
                         </div>
 
@@ -1241,9 +1152,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🛡️</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                FairVPN — App Store
+                                FairVPN
                             </div>
                         </div>
 
@@ -1258,9 +1169,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🔐</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Hiddify — Download
+                                Hiddify
                             </div>
                         </div>
 
@@ -1335,9 +1246,7 @@
     </section>
 
 
-    <!-- =========================
-         MAC
-    ========================== -->
+    <!-- MAC -->
 
     <section class="card guide-page" id="mac">
 
@@ -1385,9 +1294,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">⚔️</div>
+                            <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Clash Verge — Download
+                                Clash Verge
                             </div>
                         </div>
 
@@ -1465,9 +1374,7 @@
     </section>
 
 
-    <!-- =========================
-         LINUX
-    ========================== -->
+    <!-- LINUX -->
 
     <section class="card guide-page" id="linux">
 
@@ -1515,26 +1422,9 @@
                         rel="noopener noreferrer"
                     >
                         <div class="download-left">
-                            <div class="download-icon">🐧</div>
-                            <div class="download-name">
-                                Hiddify — Linux Download
-                            </div>
-                        </div>
-
-                        <div class="download-arrow">←</div>
-                    </a>
-
-
-                    <a
-                        class="download-button"
-                        href="https://hiddify.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <div class="download-left">
                             <div class="download-icon">🌐</div>
                             <div class="download-name">
-                                Hiddify — سایت رسمی
+                                Hiddify
                             </div>
                         </div>
 
@@ -1607,9 +1497,7 @@
     </section>
 
 
-    <!-- =========================
-         BOT
-    ========================== -->
+    <!-- BOT -->
 
     <section class="card">
 
@@ -1634,9 +1522,7 @@
     </section>
 
 
-    <!-- =========================
-         SUPPORT
-    ========================== -->
+    <!-- SUPPORT -->
 
     <section class="card">
 
@@ -1661,18 +1547,12 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
 
     <footer>
 
         <p>
             <strong>ThunderJet VPN</strong>
-        </p>
-
-        <p>
-            اتصال سریع، پایدار و امن
         </p>
 
         <p>
@@ -1697,30 +1577,22 @@
 
 <script>
 
-    /*
-     * نمایش راهنمای سیستم‌عامل
-     */
-
     function showGuide(guideId) {
 
-        // صفحه اصلی را مخفی کن
         document.getElementById("mainPage").style.display = "none";
 
-        // همه راهنماها را مخفی کن
         const guides = document.querySelectorAll(".guide-page");
 
         guides.forEach(function(guide) {
             guide.classList.remove("active");
         });
 
-        // راهنمای انتخاب‌شده را نمایش بده
         const selectedGuide = document.getElementById(guideId);
 
         if (selectedGuide) {
             selectedGuide.classList.add("active");
         }
 
-        // صفحه را به ابتدای محتوا ببر
         window.scrollTo({
             top: 0,
             behavior: "smooth"
@@ -1728,41 +1600,20 @@
     }
 
 
-    /*
-     * برگشت به صفحه اصلی
-     */
-
     function backToMain() {
 
-        // همه راهنماها را مخفی کن
         const guides = document.querySelectorAll(".guide-page");
 
         guides.forEach(function(guide) {
             guide.classList.remove("active");
         });
 
-        // صفحه اصلی را نمایش بده
         document.getElementById("mainPage").style.display = "block";
 
-        // برگشت به ابتدای صفحه
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
-    }
-
-
-    /*
-     * دکمه بازگشت اصلی
-     */
-
-    function scrollToTop() {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
     }
 
 </script>
