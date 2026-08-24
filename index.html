@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>راهنمای اتصال | ThunderJet VPN</title>
+    <title>ThunderJet VPN | راهنمای اتصال</title>
 
-    <meta name="description" content="راهنمای اتصال به سرویس ThunderJet VPN">
+    <meta name="description" content="راهنمای اتصال و دانلود برنامه‌های ThunderJet VPN">
 
     <style>
         * {
@@ -15,78 +15,444 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Tahoma, Arial, sans-serif;
             background:
-                radial-gradient(circle at top right, #182848 0%, transparent 40%),
-                radial-gradient(circle at bottom left, #0f2027 0%, transparent 40%),
-                #070b14;
+                radial-gradient(circle at 10% 10%, rgba(0, 198, 255, 0.12), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(0, 114, 255, 0.14), transparent 30%),
+                radial-gradient(circle at 50% 100%, rgba(0, 198, 255, 0.07), transparent 35%),
+                #050811;
+
             color: #ffffff;
             min-height: 100vh;
-            line-height: 1.8;
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black, transparent);
         }
 
         .container {
             width: 100%;
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
-            padding: 25px 18px 40px;
+            padding: 20px 16px 45px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
+        /* =========================
+           HERO
+        ========================== */
+
         .hero {
             text-align: center;
-            padding: 35px 20px 30px;
+            padding: 45px 20px 35px;
         }
 
         .logo {
-            width: 85px;
-            height: 85px;
-            margin: 0 auto 18px;
-            border-radius: 24px;
+            width: 92px;
+            height: 92px;
+            margin: 0 auto 20px;
+            border-radius: 28px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 42px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            box-shadow: 0 15px 40px rgba(0, 114, 255, 0.3);
+
+            font-size: 44px;
+
+            background:
+                linear-gradient(135deg, #00c6ff, #0066ff);
+
+            box-shadow:
+                0 20px 55px rgba(0, 114, 255, 0.32),
+                inset 0 1px 0 rgba(255,255,255,0.25);
+
+            animation: floatLogo 4s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
         }
 
         .hero h1 {
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            color: #aeb9cc;
+            color: #9eabc0;
             font-size: 15px;
         }
 
-        /* Cards */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 17px;
+            padding: 7px 14px;
+
+            border-radius: 999px;
+
+            background: rgba(0, 198, 255, 0.07);
+            border: 1px solid rgba(0, 198, 255, 0.16);
+
+            color: #9edfff;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CARDS
+        ========================== */
+
         .card {
-            background: rgba(18, 25, 39, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18, 27, 44, 0.92),
+                    rgba(10, 16, 28, 0.92)
+                );
+
+            border: 1px solid rgba(255,255,255,0.075);
+            border-radius: 22px;
+
             padding: 25px;
             margin-bottom: 18px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 18px 55px rgba(0,0,0,0.28),
+                inset 0 1px 0 rgba(255,255,255,0.025);
+
+            backdrop-filter: blur(14px);
         }
 
         .card h2 {
             font-size: 20px;
-            margin-bottom: 18px;
+            margin-bottom: 17px;
+
             display: flex;
             align-items: center;
+            gap: 9px;
+        }
+
+        .card-description {
+            color: #aeb9cc;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           INTRO GUIDE
+        ========================== */
+
+        .intro-text {
+            color: #c4cfdf;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .intro-text strong {
+            color: #ffffff;
+        }
+
+        .intro-highlight {
+            margin-top: 18px;
+            padding: 15px 17px;
+
+            border-radius: 15px;
+
+            background: rgba(0, 198, 255, 0.06);
+            border: 1px solid rgba(0, 198, 255, 0.15);
+
+            color: #cbefff;
+            font-size: 13px;
+        }
+
+        /* =========================
+           OS BUTTONS
+        ========================== */
+
+        .os-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .os-button {
+            appearance: none;
+            border: 1px solid rgba(255,255,255,0.08);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.075),
+                    rgba(255,255,255,0.035)
+                );
+
+            color: #ffffff;
+
+            border-radius: 17px;
+            padding: 18px 14px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: bold;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .os-button:hover {
+            transform: translateY(-3px);
+
+            border-color: rgba(0,198,255,0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,198,255,0.12),
+                    rgba(0,114,255,0.07)
+                );
+
+            box-shadow: 0 12px 30px rgba(0,114,255,0.12);
+        }
+
+        .os-icon {
+            font-size: 24px;
+        }
+
+        .back-button {
+            grid-column: 1 / -1;
+            background: rgba(255,255,255,0.04);
+        }
+
+        /* =========================
+           GUIDE PAGES
+        ========================== */
+
+        .guide-page {
+            display: none;
+        }
+
+        .guide-page.active {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .guide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .guide-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-title-icon {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg, #00c6ff, #0066ff);
+
+            font-size: 22px;
+        }
+
+        .guide-title h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .back-small {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
+
+            color: #dbe7f5;
+
+            padding: 9px 13px;
+            border-radius: 12px;
+
+            font-family: inherit;
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .back-small:hover {
+            background: rgba(0,198,255,0.1);
+            border-color: rgba(0,198,255,0.25);
+        }
+
+        .guide-content {
+            color: #c5d0df;
+            font-size: 14px;
+        }
+
+        .guide-content strong {
+            color: #ffffff;
+        }
+
+        .guide-section {
+            margin-top: 22px;
+        }
+
+        .guide-section-title {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           DOWNLOAD BUTTONS
+        ========================== */
+
+        .download-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            padding: 14px 16px;
+
+            text-decoration: none;
+            color: #ffffff;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,198,255,0.09),
+                    rgba(0,114,255,0.06)
+                );
+
+            border: 1px solid rgba(0,198,255,0.13);
+
+            transition: 0.2s ease;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0,198,255,0.35);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,198,255,0.15),
+                    rgba(0,114,255,0.10)
+                );
+        }
+
+        .download-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-icon {
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.07);
+
+            font-size: 17px;
+        }
+
+        .download-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .download-arrow {
+            color: #6fdcff;
+            font-size: 18px;
+        }
+
+        /* =========================
+           STEPS
+        ========================== */
+
+        .steps {
+            display: flex;
+            flex-direction: column;
             gap: 10px;
         }
 
         .step {
             display: flex;
             align-items: flex-start;
-            gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            gap: 13px;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.055);
         }
 
         .step:last-child {
@@ -95,104 +461,224 @@
         }
 
         .number {
-            min-width: 36px;
-            height: 36px;
-            border-radius: 12px;
+            min-width: 34px;
+            width: 34px;
+            height: 34px;
+
+            border-radius: 11px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             background: linear-gradient(135deg, #00c6ff, #0072ff);
+
+            font-size: 13px;
             font-weight: bold;
         }
 
-        .step-content h3 {
-            font-size: 16px;
-            margin-bottom: 3px;
+        .step-content {
+            color: #b9c6d8;
+            font-size: 13px;
         }
 
-        .step-content p {
-            color: #aeb9cc;
-            font-size: 14px;
-        }
+        /* =========================
+           NOTICE
+        ========================== */
 
-        /* Important box */
         .notice {
-            background: rgba(0, 198, 255, 0.07);
-            border: 1px solid rgba(0, 198, 255, 0.2);
-            border-radius: 16px;
-            padding: 18px;
-            color: #cfefff;
-            font-size: 14px;
-            margin-top: 15px;
+            margin-top: 17px;
+
+            padding: 15px 17px;
+
+            border-radius: 15px;
+
+            background: rgba(255, 193, 7, 0.055);
+            border: 1px solid rgba(255, 193, 7, 0.14);
+
+            color: #e5d6a6;
+
+            font-size: 13px;
         }
 
-        /* Buttons */
-        .buttons {
-            display: grid;
-            gap: 12px;
-            margin-top: 10px;
-        }
+        /* =========================
+           TELEGRAM
+        ========================== */
 
-        .btn {
+        .telegram-button {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 9px;
-            text-decoration: none;
-            color: white;
+
+            width: 100%;
+
             padding: 15px 20px;
+
             border-radius: 14px;
+
+            text-decoration: none;
+            color: #ffffff;
+
             font-weight: bold;
+            font-size: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #229ed9,
+                    #087db3
+                );
+
+            box-shadow:
+                0 12px 30px rgba(34,158,217,0.17);
+
             transition: 0.2s ease;
         }
 
-        .btn:hover {
+        .telegram-button:hover {
             transform: translateY(-2px);
+            box-shadow:
+                0 16px 35px rgba(34,158,217,0.24);
         }
 
-        .telegram {
-            background: linear-gradient(135deg, #229ed9, #087db3);
-            box-shadow: 0 10px 25px rgba(34, 158, 217, 0.2);
+        .support-button {
+            background:
+                linear-gradient(
+                    135deg,
+                    #1d2638,
+                    #151d2d
+                );
+
+            border: 1px solid rgba(255,255,255,0.09);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            width: 100%;
+
+            padding: 15px 20px;
+
+            border-radius: 14px;
+
+            text-decoration: none;
+            color: #ffffff;
+
+            font-weight: bold;
+            font-size: 14px;
+
+            transition: 0.2s ease;
         }
 
-        .download {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .support-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0,198,255,0.25);
         }
 
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================== */
+
         footer {
             text-align: center;
-            padding: 25px 10px 5px;
-            color: #69758a;
-            font-size: 13px;
+            padding: 30px 10px 8px;
+
+            color: #657187;
+
+            font-size: 12px;
         }
 
         footer strong {
-            color: #aeb9cc;
+            color: #aab6c9;
         }
 
-        /* Mobile */
+        .footer-telegram {
+            display: inline-block;
+            margin-top: 5px;
+
+            color: #55c9ff;
+            text-decoration: none;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
         @media (max-width: 600px) {
+
             .container {
-                padding: 15px 12px 30px;
+                padding: 10px 11px 30px;
             }
 
             .hero {
-                padding: 25px 10px;
+                padding: 35px 8px 27px;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 38px;
+                border-radius: 24px;
             }
 
             .hero h1 {
                 font-size: 25px;
             }
 
+            .hero p {
+                font-size: 13px;
+            }
+
             .card {
-                padding: 20px 17px;
-                border-radius: 17px;
+                padding: 19px 16px;
+                border-radius: 18px;
             }
 
             .card h2 {
                 font-size: 18px;
+            }
+
+            .os-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .os-button {
+                padding: 15px 8px;
+                font-size: 13px;
+            }
+
+            .os-icon {
+                font-size: 21px;
+            }
+
+            .guide-header {
+                align-items: flex-start;
+            }
+
+            .guide-title h2 {
+                font-size: 17px;
+            }
+
+            .back-small {
+                font-size: 11px;
+                padding: 7px 10px;
+            }
+
+            .download-name {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 370px) {
+
+            .os-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                grid-column: auto;
             }
         }
     </style>
@@ -202,159 +688,983 @@
 
 <div class="container">
 
-    <!-- Header -->
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="hero">
 
         <div class="logo">
             🚀
         </div>
 
-        <h1>راهنمای اتصال به ThunderJet</h1>
+        <h1>
+            ThunderJet VPN
+        </h1>
 
         <p>
-            آموزش ساده و سریع اتصال به سرویس
+            راهنمای اتصال و دریافت برنامه
         </p>
+
+        <div class="hero-badge">
+            ⚡ سریع • پایدار • امن
+        </div>
 
     </header>
 
 
-    <!-- Guide -->
-    <section class="card">
+    <!-- =========================
+         MAIN INTRO
+    ========================== -->
 
-        <h2>💡 راهنمای اتصال</h2>
+    <section class="card" id="mainPage">
 
-        <div class="step">
+        <h2>
+            💡 راهنمای اتصال
+        </h2>
 
-            <div class="number">۱</div>
+        <div class="intro-text">
 
-            <div class="step-content">
+            <strong>
+                سیستم‌عامل خود را انتخاب کنید
+            </strong>
 
-                <h3>دریافت لینک اشتراک</h3>
+            تا لینک دانلود برنامه‌ها و مراحل اتصال را ببینید.
 
-                <p>
-                    ابتدا از ربات ThunderJet سرویس موردنظر خود را تهیه کنید
-                    و لینک اشتراک خود را دریافت کنید.
-                </p>
+            <br><br>
 
-            </div>
+            راه‌اندازی این برنامه‌ها ساده است؛ پس از نصب،
+            <strong>لینک اشتراک (Subscription)</strong>
+            را کپی و در برنامه ایمپورت کنید.
 
-        </div>
+            <br><br>
 
-
-        <div class="step">
-
-            <div class="number">۲</div>
-
-            <div class="step-content">
-
-                <h3>نصب برنامه</h3>
-
-                <p>
-                    برنامه مناسب دستگاه خود را نصب کنید.
-                    برای ویندوز می‌توانید از v2rayN استفاده کنید.
-                </p>
-
-            </div>
+            برای راهنمایی بیشتر، از دکمه
+            <strong>«پشتیبانی»</strong>
+            استفاده کنید.
 
         </div>
 
 
-        <div class="step">
+        <div class="os-grid">
 
-            <div class="number">۳</div>
+            <button class="os-button" onclick="showGuide('windows')">
+                <span class="os-icon">🪟</span>
+                <span>Windows</span>
+            </button>
 
-            <div class="step-content">
+            <button class="os-button" onclick="showGuide('android')">
+                <span class="os-icon">🤖</span>
+                <span>Android</span>
+            </button>
 
-                <h3>افزودن لینک اشتراک</h3>
+            <button class="os-button" onclick="showGuide('ios')">
+                <span class="os-icon">🍎</span>
+                <span>iOS</span>
+            </button>
 
-                <p>
-                    لینک اشتراک دریافتی را در قسمت Subscription برنامه
-                    وارد کرده و لیست کانفیگ‌ها را دریافت کنید.
-                </p>
+            <button class="os-button" onclick="showGuide('mac')">
+                <span class="os-icon">💻</span>
+                <span>Mac</span>
+            </button>
 
-            </div>
+            <button class="os-button" onclick="showGuide('linux')">
+                <span class="os-icon">🐧</span>
+                <span>Linux</span>
+            </button>
 
-        </div>
+            <button class="os-button back-button" onclick="scrollToTop()">
+                <span>↩️</span>
+                <span>بازگشت</span>
+            </button>
 
-
-        <div class="step">
-
-            <div class="number">۴</div>
-
-            <div class="step-content">
-
-                <h3>انتخاب سرور</h3>
-
-                <p>
-                    یکی از سرورهای موجود را انتخاب کرده و اتصال را فعال کنید.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="notice">
-            ⚡ اگر اتصال برقرار نشد، ابتدا اینترنت خود را بررسی کنید
-            و سپس یک سرور دیگر را امتحان کنید.
         </div>
 
     </section>
 
 
-    <!-- Telegram -->
+    <!-- =========================
+         WINDOWS
+    ========================== -->
+
+    <section class="card guide-page" id="windows">
+
+        <div class="guide-header">
+
+            <div class="guide-title">
+
+                <div class="guide-title-icon">
+                    🪟
+                </div>
+
+                <h2>
+                    راهنمای اتصال — ویندوز
+                </h2>
+
+            </div>
+
+            <button class="back-small" onclick="backToMain()">
+                ↩️ بازگشت
+            </button>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            روی ویندوز می‌توانید از کلاینت‌های زیر استفاده کنید.
+            در راهنمای تصویری با نام‌های
+            <strong>v2rayNG</strong>،
+            <strong>Hiddify</strong>
+            و
+            <strong>Netch</strong>
+            آمده‌اند؛ نسخهٔ دسکتاپ خانوادهٔ v2ray با نام
+            <strong>v2rayN</strong>
+            منتشر می‌شود.
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    📥 دانلود برنامه‌ها
+                </div>
+
+                <div class="download-list">
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/2dust/v2rayN/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🚀</div>
+                            <div class="download-name">
+                                v2rayN — Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/hiddify/hiddify-app/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🔐</div>
+                            <div class="download-name">
+                                Hiddify — Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/netchx/netch/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🌐</div>
+                            <div class="download-name">
+                                Netch — Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    ❔ مراحل اتصال
+                    <span style="color:#8edfff;">
+                        (پیشنهادی: v2rayN / Hiddify)
+                    </span>
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">۱</div>
+                        <div class="step-content">
+                            فایل نصب یا Portable را از لینک بالا دانلود و نصب/استخراج کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۲</div>
+                        <div class="step-content">
+                            در صورت نیاز، برنامه را به‌عنوان Administrator اجرا کنید و فایروال ویندوز را تأیید کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۳</div>
+                        <div class="step-content">
+                            لینک اشتراک یا کانفیگ را کپی کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۴</div>
+                        <div class="step-content">
+                            در <strong>v2rayN</strong>:
+                            افزودن اشتراک → به‌روزرسانی → انتخاب سرور →
+                            Set as active system proxy / Connect.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۵</div>
+                        <div class="step-content">
+                            در <strong>Hiddify</strong>:
+                            افزودن پروفایل از لینک → اتصال.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۶</div>
+                        <div class="step-content">
+                            در <strong>Netch</strong>:
+                            حالت مناسب مانند Process Mode / TUN را انتخاب،
+                            کانفیگ را وارد و Start بزنید.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="notice">
+                ❕ نکته: پس از اتصال، IP یا یک سایت تست را چک کنید.
+                در صورت قطعی، سرور دیگری را امتحان کنید یا اشتراک را Update کنید.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ANDROID
+    ========================== -->
+
+    <section class="card guide-page" id="android">
+
+        <div class="guide-header">
+
+            <div class="guide-title">
+
+                <div class="guide-title-icon">
+                    🤖
+                </div>
+
+                <h2>
+                    راهنمای اتصال — اندروید
+                </h2>
+
+            </div>
+
+            <button class="back-small" onclick="backToMain()">
+                ↩️ بازگشت
+            </button>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            روی اندروید معمولاً از
+            <strong>v2rayNG</strong>
+            یا
+            <strong>Hiddify</strong>
+            استفاده می‌شود.
+            هر دو رایگان‌اند و لینک اشتراک پنل را به‌راحتی ایمپورت می‌کنند.
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    📥 دانلود برنامه‌ها
+                </div>
+
+                <div class="download-list">
+
+                    <a
+                        class="download-button"
+                        href="https://play.google.com/store/apps/details?id=com.happproxy&pcampaignid=web_share"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">⚡</div>
+                            <div class="download-name">
+                                Happ — Google Play
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://play.google.com/store/apps/details?id=com.v2ray.ang"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🔵</div>
+                            <div class="download-name">
+                                v2rayNG — Google Play
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/2dust/v2rayNG/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">📦</div>
+                            <div class="download-name">
+                                v2rayNG — GitHub
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://hiddify.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🔐</div>
+                            <div class="download-name">
+                                Hiddify — سایت رسمی
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/hiddify/hiddify-app/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">💻</div>
+                            <div class="download-name">
+                                Hiddify — GitHub
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    ❔ مراحل اتصال
+                    <span style="color:#8edfff;">
+                        (پیشنهادی: Happ)
+                    </span>
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">۱</div>
+                        <div class="step-content">
+                            یکی از برنامه‌های بالا را نصب کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۲</div>
+                        <div class="step-content">
+                            برنامه را باز کنید و در صورت درخواست،
+                            اجازهٔ VPN / اتصال را بدهید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۳</div>
+                        <div class="step-content">
+                            <strong>لینک اشتراک (Subscription)</strong>
+                            یا کانفیگ را کپی کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۴</div>
+                        <div class="step-content">
+                            در <strong>Happ</strong>:
+                            منوی + → Subscription URL / آدرس اشتراک →
+                            افزودن لینک → سپس سرور را آپدیت و انتخاب کنید و Connect کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۵</div>
+                        <div class="step-content">
+                            در <strong>v2rayNG</strong>:
+                            منوی ☰ → Subscription setting →
+                            افزودن لینک → به‌روزرسانی؛ سپس سرور را انتخاب و Connect کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۶</div>
+                        <div class="step-content">
+                            در <strong>Hiddify</strong>:
+                            افزودن از لینک / QR → چسباندن لینک → Connect.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="notice">
+                ❕ نکته: اگر کانفیگ‌ها ظاهر نشدند،
+                اشتراک را یک‌بار Update کنید و نسخه برنامه را به‌روز نگه دارید.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         IOS
+    ========================== -->
+
+    <section class="card guide-page" id="ios">
+
+        <div class="guide-header">
+
+            <div class="guide-title">
+
+                <div class="guide-title-icon">
+                    🍎
+                </div>
+
+                <h2>
+                    راهنمای اتصال — iOS
+                </h2>
+
+            </div>
+
+            <button class="back-small" onclick="backToMain()">
+                ↩️ بازگشت
+            </button>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            روی آیفون و آیپد معمولاً از
+            <strong>Happ</strong>
+            یا
+            <strong>FairVPN</strong>
+            یا
+            <strong>Hiddify</strong>
+            استفاده می‌شود.
+            نصب فقط از App Store یا لینک رسمی انجام شود.
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    📥 دانلود برنامه‌ها
+                </div>
+
+                <div class="download-list">
+
+                    <a
+                        class="download-button"
+                        href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">⚡</div>
+                            <div class="download-name">
+                                Happ — App Store
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://apps.apple.com/app/fair-vpn/id1533873488"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🛡️</div>
+                            <div class="download-name">
+                                FairVPN — App Store
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://hiddify.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🔐</div>
+                            <div class="download-name">
+                                Hiddify — Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    ❔ مراحل اتصال
+                    <span style="color:#8edfff;">
+                        (پیشنهادی: Happ)
+                    </span>
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">۱</div>
+                        <div class="step-content">
+                            برنامه را از لینک بالا نصب کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۲</div>
+                        <div class="step-content">
+                            اجازهٔ افزودن <strong>VPN Configuration</strong>
+                            را تأیید کنید. ممکن است رمز یا Face ID لازم باشد.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۳</div>
+                        <div class="step-content">
+                            لینک اشتراک یا QR را کپی کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۴</div>
+                        <div class="step-content">
+                            Import / Add Subscription را بزنید و لینک را وارد کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۵</div>
+                        <div class="step-content">
+                            سرور را انتخاب کرده و Connect را فعال کنید.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="notice">
+                ❕ نکته: اگر اتصال برقرار نشد،
+                در تنظیمات iOS مسیر VPN را چک کنید و اپ را به‌روز نگه دارید.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAC
+    ========================== -->
+
+    <section class="card guide-page" id="mac">
+
+        <div class="guide-header">
+
+            <div class="guide-title">
+
+                <div class="guide-title-icon">
+                    💻
+                </div>
+
+                <h2>
+                    راهنمای اتصال — مک
+                </h2>
+
+            </div>
+
+            <button class="back-small" onclick="backToMain()">
+                ↩️ بازگشت
+            </button>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            برای macOS، کلاینت پیشنهادی
+            <strong>Clash Verge</strong>
+            (Clash Verge Rev)
+            است که از اشتراک و پروتکل‌های رایج پشتیبانی می‌کند.
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    📥 دانلود برنامه
+                </div>
+
+                <div class="download-list">
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/clash-verge-rev/clash-verge-rev/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">⚔️</div>
+                            <div class="download-name">
+                                Clash Verge — Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    ❔ مراحل اتصال
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">۱</div>
+                        <div class="step-content">
+                            نسخهٔ مناسب معماری مک
+                            (Intel یا Apple Silicon)
+                            را از Releases دانلود کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۲</div>
+                        <div class="step-content">
+                            برنامه را نصب کنید؛ در صورت هشدار امنیتی،
+                            از System Settings → Privacy & Security
+                            اجازهٔ اجرا بدهید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۳</div>
+                        <div class="step-content">
+                            Clash Verge را باز کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۴</div>
+                        <div class="step-content">
+                            لینک اشتراک را در
+                            Profiles / Subscription
+                            اضافه کنید و Update بزنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۵</div>
+                        <div class="step-content">
+                            نود (سرور) را انتخاب و
+                            System Proxy یا TUN را روشن کنید.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="notice">
+                ❕ نکته: اگر برنامه اجرا نشد،
+                تنظیمات Privacy & Security مک را بررسی کنید.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LINUX
+    ========================== -->
+
+    <section class="card guide-page" id="linux">
+
+        <div class="guide-header">
+
+            <div class="guide-title">
+
+                <div class="guide-title-icon">
+                    🐧
+                </div>
+
+                <h2>
+                    راهنمای اتصال — لینوکس
+                </h2>
+
+            </div>
+
+            <button class="back-small" onclick="backToMain()">
+                ↩️ بازگشت
+            </button>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            برای لینوکس می‌توانید از
+            <strong>Hiddify</strong>
+            استفاده کنید.
+            این برنامه برای سیستم‌های دسکتاپ مختلف نسخه‌های مناسب ارائه می‌کند.
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    📥 دانلود برنامه
+                </div>
+
+                <div class="download-list">
+
+                    <a
+                        class="download-button"
+                        href="https://github.com/hiddify/hiddify-app/releases"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🐧</div>
+                            <div class="download-name">
+                                Hiddify — Linux Download
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+
+                    <a
+                        class="download-button"
+                        href="https://hiddify.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="download-left">
+                            <div class="download-icon">🌐</div>
+                            <div class="download-name">
+                                Hiddify — سایت رسمی
+                            </div>
+                        </div>
+
+                        <div class="download-arrow">←</div>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="guide-section">
+
+                <div class="guide-section-title">
+                    ❔ مراحل اتصال
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">۱</div>
+                        <div class="step-content">
+                            نسخه مناسب Linux را از لینک بالا دانلود و نصب کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۲</div>
+                        <div class="step-content">
+                            برنامه را اجرا کنید و دسترسی‌های موردنیاز سیستم را تأیید کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۳</div>
+                        <div class="step-content">
+                            لینک اشتراک ThunderJet را کپی کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۴</div>
+                        <div class="step-content">
+                            در Hiddify گزینه افزودن پروفایل از لینک را انتخاب کنید
+                            و لینک اشتراک را وارد کنید.
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">۵</div>
+                        <div class="step-content">
+                            پروفایل را Update کنید، سرور موردنظر را انتخاب کرده
+                            و اتصال را فعال کنید.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="notice">
+                ❕ نکته: در صورت عدم اتصال،
+                اشتراک را Update کنید و یک سرور دیگر را امتحان کنید.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOT
+    ========================== -->
+
     <section class="card">
 
-        <h2>🤖 ربات ThunderJet</h2>
+        <h2>
+            🤖 ربات ThunderJet
+        </h2>
 
-        <p style="color:#aeb9cc; font-size:14px; margin-bottom:18px;">
+        <p class="card-description">
             برای خرید سرویس، دریافت لینک اشتراک و مدیریت سرویس‌های خود
-            وارد ربات شوید.
+            وارد ربات ThunderJet شوید.
         </p>
 
-        <div class="buttons">
-
-            <a
-                class="btn telegram"
-                href="https://t.me/ThunderJet_VPNbot"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                🚀 ورود به ربات ThunderJet
-            </a>
-
-        </div>
+        <a
+            class="telegram-button"
+            href="https://t.me/ThunderJet_VPNbot"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            🚀 ورود به ربات ThunderJet
+        </a>
 
     </section>
 
 
-    <!-- Support -->
+    <!-- =========================
+         SUPPORT
+    ========================== -->
+
     <section class="card">
 
-        <h2>🛠️ نیاز به راهنمایی داری؟</h2>
+        <h2>
+            🛠️ ارتباط با پشتیبانی
+        </h2>
 
-        <p style="color:#aeb9cc; font-size:14px;">
-            اگر در اتصال یا استفاده از سرویس مشکلی داشتی،
-            از طریق ربات با پشتیبانی در ارتباط باش.
+        <p class="card-description">
+            اگر در نصب برنامه، وارد کردن لینک اشتراک یا اتصال
+            مشکلی داشتی، از طریق پشتیبانی با ما در ارتباط باش.
         </p>
 
-        <div class="buttons">
-
-            <a
-                class="btn download"
-                href="https://t.me/ThunderJet_VPNbot"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                💬 ارتباط با پشتیبانی
-            </a>
-
-        </div>
+        <a
+            class="support-button"
+            href="https://t.me/ThunderJet_Supp"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            💬 ارتباط با پشتیبانی
+        </a>
 
     </section>
 
 
-    <!-- Footer -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
         <p>
@@ -365,6 +1675,17 @@
             اتصال سریع، پایدار و امن
         </p>
 
+        <p>
+            <a
+                class="footer-telegram"
+                href="https://t.me/ThunderJet_VPNbot"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🚀 ThunderJet_VPNbot
+            </a>
+        </p>
+
         <p style="margin-top:8px;">
             © 2026 ThunderJet
         </p>
@@ -372,6 +1693,79 @@
     </footer>
 
 </div>
+
+
+<script>
+
+    /*
+     * نمایش راهنمای سیستم‌عامل
+     */
+
+    function showGuide(guideId) {
+
+        // صفحه اصلی را مخفی کن
+        document.getElementById("mainPage").style.display = "none";
+
+        // همه راهنماها را مخفی کن
+        const guides = document.querySelectorAll(".guide-page");
+
+        guides.forEach(function(guide) {
+            guide.classList.remove("active");
+        });
+
+        // راهنمای انتخاب‌شده را نمایش بده
+        const selectedGuide = document.getElementById(guideId);
+
+        if (selectedGuide) {
+            selectedGuide.classList.add("active");
+        }
+
+        // صفحه را به ابتدای محتوا ببر
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    /*
+     * برگشت به صفحه اصلی
+     */
+
+    function backToMain() {
+
+        // همه راهنماها را مخفی کن
+        const guides = document.querySelectorAll(".guide-page");
+
+        guides.forEach(function(guide) {
+            guide.classList.remove("active");
+        });
+
+        // صفحه اصلی را نمایش بده
+        document.getElementById("mainPage").style.display = "block";
+
+        // برگشت به ابتدای صفحه
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+
+    /*
+     * دکمه بازگشت اصلی
+     */
+
+    function scrollToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
 
 </body>
 </html>
