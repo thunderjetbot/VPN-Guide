@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>راهنمای اتصال</title>
+
+    <style>
+    body {
+        background-color: #eaf4ff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+    }
+
+    h1 {
+        color: #087cf5;
+    }
+
+    p {
+        color: #444;
+    }
+
+    .systems {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 400px;
+        margin: 30px auto;
+    }
+
+    .button {
+        display: block;
+        background-color: white;
+        color: #087cf5;
+        padding: 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .button:hover {
+        background-color: #087cf5;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>💡 راهنمای اتصال</h1>
+
+    <p>برنامه مناسب دستگاه خود را انتخاب کنید.</p>
+    <div class="systems">
+
+    <a href="https://github.com/2dust/v2rayN/releases" class="button">
+        🪟 Windows
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.happproxy&pcampaignid=web_share" class="button">
+        🤖 Android
+    </a>
+
+    <a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" class="button">
+        🍎 iOS
+    </a>
+
+    <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" class="button">
+        💻 Mac
+    </a>
+
+    <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" class="button">
+        🐧 Linux
+    </a>
+
+</div>
+
+</body>
+
+</html>
