@@ -1,81 +1,377 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
-    <title>راهنمای اتصال</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>راهنمای اتصال | ThunderJet VPN</title>
+
+    <meta name="description" content="راهنمای اتصال به سرویس ThunderJet VPN">
 
     <style>
-    body {
-        background-color: #eaf4ff;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    h1 {
-        color: #087cf5;
-    }
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background:
+                radial-gradient(circle at top right, #182848 0%, transparent 40%),
+                radial-gradient(circle at bottom left, #0f2027 0%, transparent 40%),
+                #070b14;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
 
-    p {
-        color: #444;
-    }
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+            padding: 25px 18px 40px;
+        }
 
-    .systems {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        max-width: 400px;
-        margin: 30px auto;
-    }
+        /* Header */
+        .hero {
+            text-align: center;
+            padding: 35px 20px 30px;
+        }
 
-    .button {
-        display: block;
-        background-color: white;
-        color: #087cf5;
-        padding: 16px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: bold;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
+        .logo {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 18px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            box-shadow: 0 15px 40px rgba(0, 114, 255, 0.3);
+        }
 
-    .button:hover {
-        background-color: #087cf5;
-        color: white;
-    }
-</style>
+        .hero h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #aeb9cc;
+            font-size: 15px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(18, 25, 39, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .number {
+            min-width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            font-weight: bold;
+        }
+
+        .step-content h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .step-content p {
+            color: #aeb9cc;
+            font-size: 14px;
+        }
+
+        /* Important box */
+        .notice {
+            background: rgba(0, 198, 255, 0.07);
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            border-radius: 16px;
+            padding: 18px;
+            color: #cfefff;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 14px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .telegram {
+            background: linear-gradient(135deg, #229ed9, #087db3);
+            box-shadow: 0 10px 25px rgba(34, 158, 217, 0.2);
+        }
+
+        .download {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 10px 5px;
+            color: #69758a;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #aeb9cc;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px 12px 30px;
+            }
+
+            .hero {
+                padding: 25px 10px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .card {
+                padding: 20px 17px;
+                border-radius: 17px;
+            }
+
+            .card h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>💡 راهنمای اتصال</h1>
+<div class="container">
 
-    <p>برنامه مناسب دستگاه خود را انتخاب کنید.</p>
-    <div class="systems">
+    <!-- Header -->
+    <header class="hero">
 
-    <a href="https://github.com/2dust/v2rayN/releases" class="button">
-        🪟 Windows
-    </a>
+        <div class="logo">
+            🚀
+        </div>
 
-    <a href="https://play.google.com/store/apps/details?id=com.happproxy&pcampaignid=web_share" class="button">
-        🤖 Android
-    </a>
+        <h1>راهنمای اتصال به ThunderJet</h1>
 
-    <a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" class="button">
-        🍎 iOS
-    </a>
+        <p>
+            آموزش ساده و سریع اتصال به سرویس
+        </p>
 
-    <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" class="button">
-        💻 Mac
-    </a>
+    </header>
 
-    <a href="https://github.com/clash-verge-rev/clash-verge-rev/releases" class="button">
-        🐧 Linux
-    </a>
+
+    <!-- Guide -->
+    <section class="card">
+
+        <h2>💡 راهنمای اتصال</h2>
+
+        <div class="step">
+
+            <div class="number">۱</div>
+
+            <div class="step-content">
+
+                <h3>دریافت لینک اشتراک</h3>
+
+                <p>
+                    ابتدا از ربات ThunderJet سرویس موردنظر خود را تهیه کنید
+                    و لینک اشتراک خود را دریافت کنید.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۲</div>
+
+            <div class="step-content">
+
+                <h3>نصب برنامه</h3>
+
+                <p>
+                    برنامه مناسب دستگاه خود را نصب کنید.
+                    برای ویندوز می‌توانید از v2rayN استفاده کنید.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۳</div>
+
+            <div class="step-content">
+
+                <h3>افزودن لینک اشتراک</h3>
+
+                <p>
+                    لینک اشتراک دریافتی را در قسمت Subscription برنامه
+                    وارد کرده و لیست کانفیگ‌ها را دریافت کنید.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">۴</div>
+
+            <div class="step-content">
+
+                <h3>انتخاب سرور</h3>
+
+                <p>
+                    یکی از سرورهای موجود را انتخاب کرده و اتصال را فعال کنید.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="notice">
+            ⚡ اگر اتصال برقرار نشد، ابتدا اینترنت خود را بررسی کنید
+            و سپس یک سرور دیگر را امتحان کنید.
+        </div>
+
+    </section>
+
+
+    <!-- Telegram -->
+    <section class="card">
+
+        <h2>🤖 ربات ThunderJet</h2>
+
+        <p style="color:#aeb9cc; font-size:14px; margin-bottom:18px;">
+            برای خرید سرویس، دریافت لینک اشتراک و مدیریت سرویس‌های خود
+            وارد ربات شوید.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="btn telegram"
+                href="https://t.me/ThunderJet_VPNbot"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                🚀 ورود به ربات ThunderJet
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Support -->
+    <section class="card">
+
+        <h2>🛠️ نیاز به راهنمایی داری؟</h2>
+
+        <p style="color:#aeb9cc; font-size:14px;">
+            اگر در اتصال یا استفاده از سرویس مشکلی داشتی،
+            از طریق ربات با پشتیبانی در ارتباط باش.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="btn download"
+                href="https://t.me/ThunderJet_VPNbot"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 ارتباط با پشتیبانی
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            <strong>ThunderJet VPN</strong>
+        </p>
+
+        <p>
+            اتصال سریع، پایدار و امن
+        </p>
+
+        <p style="margin-top:8px;">
+            © 2026 ThunderJet
+        </p>
+
+    </footer>
 
 </div>
 
 </body>
-
 </html>
